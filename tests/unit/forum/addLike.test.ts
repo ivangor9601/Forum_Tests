@@ -49,7 +49,7 @@ describe('PostServiceImpl.addLike', () => {
         expect(result.author).toEqual(fakePostDto.author);
         expect(result.dateCreated).toEqual(fakePostDto.dateCreated);
         expect(result.tags).toEqual(fakePostDto.tags);
-        expect(result.likes).toEqual(fakePostDto.likes);
+        expect(result.likes).toEqual(11);
         expect(result.comments).toEqual(fakePostDto.comments);
     })
 
@@ -57,6 +57,6 @@ describe('PostServiceImpl.addLike', () => {
 
         (Post.findById as jest.Mock).mockResolvedValue(null);
 
-        await expect(postService.findPostById("UNKNOWN")).rejects.toThrow("post is null");
+        await expect(postService.addLike("UNKNOWN")).rejects.toThrow("post is null");
     })
 })
