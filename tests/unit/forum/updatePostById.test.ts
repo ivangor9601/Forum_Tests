@@ -18,11 +18,11 @@ describe('PostServiceImpl.updatePostById', () => {
     it("Passed test", async () => {
         const fakePostDto = {
             id: "1234",
-            title: "Another Title",
-            content: "Another Content",
+            title: "Test Title",
+            content: "Test Content",
             author: "Test Author",
             dateCreated: new Date('2025-02-21'),
-            tags: ['JavaScript', 'Java'],
+            tags: ['node', 'nest'],
             likes: 10,
             comments: [
                 {
@@ -44,11 +44,11 @@ describe('PostServiceImpl.updatePostById', () => {
 
         expect(result).toBeInstanceOf(PostDto);
         expect(result.id).toEqual(fakePostDto.id);
-        expect(result.title).toEqual(fakePostDto.title);
-        expect(result.content).toEqual(fakePostDto.content);
+        expect(result.title).toEqual("Another Title");
+        expect(result.content).toEqual("Another Content");
         expect(result.author).toEqual(fakePostDto.author);
         expect(result.dateCreated).toEqual(fakePostDto.dateCreated);
-        expect(result.tags).toEqual(fakePostDto.tags);
+        expect(result.tags).toEqual(['JavaScript', 'Java']);
         expect(result.likes).toEqual(fakePostDto.likes);
         expect(result.comments).toEqual(fakePostDto.comments);
     })
